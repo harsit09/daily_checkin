@@ -1,0 +1,54 @@
+Step 1: Client Prepares the HTTP Request
+The journey begins when the client formulates an HTTP request. This request includes:
+Request Line: Specifies the HTTP method (e.g., GET, POST), the resource being requested (URL), and the HTTP version.
+Headers: Provide additional information such as user-agent details, accepted content types, and cookies.
+Body: Optional data sent with methods like POST, containing information to be processed by the server
+
+Example:
+When a user enters a URL in their browser, it constructs a request like:
+text
+GET /index.html HTTP/1.1
+Host: www.example.com
+
+Step 2: DNS Lookup
+Before sending the request, the client needs to resolve the domain name into an IP address. This involves:
+Sending a DNS query to a local DNS resolver.
+The resolver queries other DNS servers if necessary until it finds the IP address for the requested domain25.
+Step 3: Establishing a TCP Connection
+Once the IP address is obtained, the client establishes a TCP connection with the server through a three-way handshake:
+SYN: The client sends a SYN packet to initiate a connection.
+SYN-ACK: The server responds with a SYN-ACK packet.
+ACK: The client sends back an ACK packet, completing the handshake24.
+
+Step 4: Sending the HTTP Request
+With the TCP connection established, the client sends the prepared HTTP request to the server over this connection. The request travels through various routers and switches across the internet until it reaches its destination56.
+Step 5: Server Processes the Request
+Upon receiving the request, the server processes it as follows:
+It reads and interprets the request line and headers.
+The server locates the requested resource (e.g., an HTML file or an API endpoint).
+If applicable, it may execute server-side logic (like querying a database) to generate dynamic content34.
+
+Step 6: Server Generates an HTTP Response
+After processing, the server creates an HTTP response that includes:
+Status Line: Indicates whether the request was successful (e.g., HTTP/1.1 200 OK).
+Headers: Provide metadata about the response, such as content type and length.
+Body: Contains the requested resource or data (e.g., HTML content)
+
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1234
+
+<html>...</html>
+
+Step 7: Client Receives and Processes the Response
+The response is sent back over the established TCP connection. The client receives this response and performs several actions:
+Reads Headers: Understands content type and caching policies.
+Renders Content: If it's HTML, CSS, or JavaScript, it renders it for display in the browser.
+Handles Additional Resources: If there are linked resources (like images or scripts), it may initiate further HTTP requests to load those1
+
+
+
+
+
+
